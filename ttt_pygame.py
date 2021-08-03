@@ -15,7 +15,7 @@ class TicTacToeGame:
         self.active_board = False
 
         #set width/height constants for window and generate it
-        self.SCREEN_WIDTH = 1200
+        self.SCREEN_WIDTH = 1000
         self.SCREEN_HEIGHT = 1000
         self.screen = pygame.display.set_mode([self.SCREEN_WIDTH, self.SCREEN_HEIGHT])
         
@@ -35,10 +35,10 @@ class TicTacToeGame:
         
     def set_constants(self):
         #set dimensions for game region
-        self.GAME_WIDTH = int(3/4*self.SCREEN_WIDTH)
-        self.GAME_HEIGHT = int(4/5*self.SCREEN_HEIGHT)
-        self.GAME_H_START = int(1/8*self.SCREEN_WIDTH)
-        self.GAME_V_START = int(1/10*self.SCREEN_HEIGHT)
+        self.GAME_WIDTH = int(14/15*self.SCREEN_WIDTH)
+        self.GAME_HEIGHT = int(14/15*self.SCREEN_HEIGHT)
+        self.GAME_H_START = int(1/30*self.SCREEN_WIDTH)
+        self.GAME_V_START = int(1/30*self.SCREEN_HEIGHT)
         
         #colors for board components
         self.LINE_COLOR = (217, 219, 217) #lines
@@ -191,13 +191,15 @@ class TicTacToeGame:
         
             
     def declare_winner(self,player):
-        self.game_happening = False #TODO
+        self.game_happening = False 
+        playerchar = ["x","o"]
         if player == 1:
             color = self.X_COLOR
         elif player == 2:
             color = self.O_COLOR
         elif player == 3:
             color = self.SQ_COLOR
+        logging.info(f"Game won by player {playerchar[player-1]}")
         self.draw_board_lines(self.main_board, self.LWID_BIG, color)
             
     

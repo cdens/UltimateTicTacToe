@@ -65,7 +65,7 @@ class Board:
                 if cstatus == player or (possible and cstatus == 0):
                     num_set += 1
             if num_set == 3: #3 in a row, it's a win (not possible means it's checking for actual wins)
-                if not possible:
+                if not possible and not self._status: #not self._status to verify that a player hasn't already won the board
                     self.win_type = option
                     self._status = player
                 return True
